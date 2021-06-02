@@ -40,7 +40,7 @@ const pickRandomImage = array => {
 function loadImage(){
     console.log(displayedImg);
     $(".image-box").attr("src", displayedImg.download_url);
-    $(".test-data").innerHTML = (`${displayedImg.url}`);
+    $(".test-data").text(`URL: ${displayedImg.url}`);
 }
 //need array's download url
 
