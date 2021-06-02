@@ -15,7 +15,9 @@ function getImages(){
     axios.get(`https://picsum.photos/v2/list?page=${randomPage}&limit=100`)
             .then(function(response) {
                 pickRandomImage(response.data)
-            }) .catch(err => errorHandler(err))
+                console.log(response.data);
+            })
+            // }) .catch(err => errorHandler(err))
 
 }
 
@@ -36,7 +38,9 @@ const pickRandomImage = array => {
 }
 
 function loadImage(){
-    $(".test-data").innerHTML = ImageDetails[2];
+    console.log(displayedImg);
+    $(".image-box").attr("src", displayedImg.download_url);
+    $(".test-data").innerHTML = (`${displayedImg.url}`);
 }
 //need array's download url
 
@@ -45,7 +49,7 @@ function loadImage(){
 //need checklinks function
 
 $("#call-test").click(function(){
-    
+    getImages();
 });
 
 
