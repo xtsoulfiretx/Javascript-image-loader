@@ -4,6 +4,8 @@
             <title>A.L Image Loader</title>
             <link href="style/css/style.css" rel="stylesheet">
             <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script src="https://unpkg.com/core-js-bundle@3.9.1/minified.js"></script>
         </head>
 
         <body>
@@ -21,14 +23,14 @@
                     <div id="body-main">
                         <div id="body-image-loader">
                             <div class="image-loader-head">
-                                <div class="image-button prev">
-                                    <button>Placeholder button</button>
+                                <div class="prev">
+                                    <button class="image-button">Placeholder button</button>
                                 </div>
                                 <div class="image-loader-title">
                                     <h2>Placeholder title</h2>
                                 </div>
-                                <div class="image-button next">
-                                    <button>Placeholder button</button>
+                                <div class="next">
+                                    <button class="image-button">Placeholder button</button>
                                 </div>
                             </div>
                             <div id="image-loader">
@@ -36,10 +38,24 @@
                                     <div class="image-box">
                                     </div>
                                 </div>
+                                <button id="call-test">call button</button>
                             </div>
                             <div class="image-loader-info">
-                                <h3>This is where the details will go</h3>
-                                <button id="test-button">Change Color</button>
+                                <div class="image-info-forms">
+                                    <div class="image-details">
+                                        <h3>Image details</h3>
+                                        <h4>Author:</h4>
+                                        <h4>Dimensions:</h4>
+                                        <h4>Id:</h4>
+                                        <h4 class="test-data">URL: </h4>
+                                    </div>
+                                    <form id="email-form" method="POST">
+                                        <input type="email" placeholder="Email Address*" id="email" class="style-input">
+                                        <input type="text" placeholder="Subject" id="subject" class="style-input">
+                                        <textarea placeholder="Message" id="message" class="style-input" rows="6" style="resize: none;"></textarea>
+                                        <button>Submit</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
