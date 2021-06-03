@@ -4,7 +4,7 @@ let displayedImg;
 let prevDisplayImg;
 
 // Image Details for displayedImg and LinkedImgs
-const ImageDetails = class {
+class ImageDetails {
     constructor(id, author,url, download_url,) {
         this.id = id,
         this.author = author,
@@ -42,13 +42,7 @@ const pickRandomImage = array => {
     loadImageDetails()
 }
 
-function saveOldImage(){
-    prevDisplayImg = displayedImg;
-    console.log("SOI function: ",prevDisplayImg);
-}
-
 function loadImage(){
-    console.log(displayedImg);
     $(".image-box").attr("src", displayedImg.download_url);
 }
 
@@ -57,13 +51,20 @@ function loadImageDetails(){
     $(".image-id").text(`ID: ${displayedImg.id}`);
     $(".image-author").text(`Author: ${displayedImg.author}`)
 }
+    
 //need checklinks function
 
 $(document).ready(getImages());
 
-$("#call-test").click(function(){
-    saveOldImage();
+$(".next").click(function(){
+    prevDisplayImg = displayedImg;
     getImages();
+});
+
+$("#prev-img").click(function(){
+    displayedImg = prevDisplayImg;
+    loadImage();
+    loadImageDetails();
 });
 
 
