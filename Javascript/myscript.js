@@ -1,3 +1,8 @@
+//
+
+let displayedImg;
+let prevDisplayImg;
+
 // Image Details for displayedImg and LinkedImgs
 const ImageDetails = class {
     constructor(id, author,url, download_url,) {
@@ -12,7 +17,7 @@ const ImageDetails = class {
 
 function getImages(){
     const randomPage = Math.floor(Math.random() * (10) + 1)
-    axios.get(`https://picsum.photos/v2/list?page=${randomPage}&limit=100`)
+    axios.get(`https://picsum.photos/v2/list?page=${randomPage}&limit=10`)
             .then(function(response) {
                 pickRandomImage(response.data)
                 console.log(response.data);
@@ -34,21 +39,30 @@ const pickRandomImage = array => {
         // chosenImageLinks
     )
     loadImage()
-    // loadImageDetails()
+    loadImageDetails()
+}
+
+function saveOldImage(){
+    prevDisplayImg = displayedImg;
+    console.log("SOI function: ",prevDisplayImg);
 }
 
 function loadImage(){
     console.log(displayedImg);
     $(".image-box").attr("src", displayedImg.download_url);
-    $(".test-data").text(`URL: ${displayedImg.url}`);
 }
-//need array's download url
 
-//need ImageDetails function
-
+function loadImageDetails(){
+    $(".image-url").text(`URL: ${displayedImg.url}`);
+    $(".image-id").text(`ID: ${displayedImg.id}`);
+    $(".image-author").text(`Author: ${displayedImg.author}`)
+}
 //need checklinks function
 
+$(document).ready(getImages());
+
 $("#call-test").click(function(){
+    saveOldImage();
     getImages();
 });
 
