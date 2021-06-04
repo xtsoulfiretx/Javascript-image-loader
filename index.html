@@ -6,6 +6,7 @@
             <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
             <script src="https://unpkg.com/core-js-bundle@3.9.1/minified.js"></script>
+            <script src="https://kit.fontawesome.com/2617b01a9a.js" crossorigin="anonymous"></script>
         </head>
 
         <body>
@@ -37,23 +38,35 @@
                                 <div class="image-container">
                                     <img src="https://picsum.photos/1200/600" alt="placeholder image" class="image-box">
                                 </div> 
-                                <button id="call-test">call button</button>
                             </div>
                             <div class="image-loader-info">
                                 <div class="image-info-forms">
                                     <div class="image-details">
                                         <h3>Image details</h3>
                                         <h4 class="image-author">Author:</h4>
-                                        <h4 class="image-dimensions">Dimensions:</h4>
                                         <h4 class="image-id">Id:</h4>
                                         <h4 class="image-url">URL: </h4>
                                     </div>
                                     <form id="email-form" method="POST">
+                                        <h2>Attach this image to an Email.</h2> 
                                         <input type="email" placeholder="Email Address*" id="email" class="style-input">
-                                        <input type="text" placeholder="Subject" id="subject" class="style-input">
-                                        <textarea placeholder="Message" id="message" class="style-input" rows="6" style="resize: none;"></textarea>
-                                        <button>Submit</button>
+                                        <button id="link-button">Link Email</button>
                                     </form>
+                                </div>
+                            </div>
+                            <div id="email-section">
+                                <div class="email-show">
+                                    <i class="fas fa-plus-circle"></i><h2>Emails</h2>
+                                </div>
+                                <div class="email-container">
+                                    <div class="email-head">
+                                        <h2>Emails</h2>
+                                    </div>
+                                    <div class="saved-emails">
+                                        <i class="far fa-plus-square"></i><p>Example.email@test.com</p>
+                                        <i class="far fa-plus-square"></i><p>Example.email@test.com</p>
+                                        <i class="far fa-plus-square"></i><p>Example.email@test.com</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
