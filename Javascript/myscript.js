@@ -69,6 +69,27 @@ $("#prev-img").click(function(){
 
 
 // Email Section
-var EmailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+const EmailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+const validateEmail = function(email) {
+    if (email.match(EmailRegex) && email.length > 0) {
+        return true 
+    } else {
+        return false
+    }
+}
+
+$("#email").on('input', function (){
+    const isValid = validateEmail($("#email").val())
+    if (isValid) {
+        console.log("email valid");
+        $("#email").css("border", "3px solid green");
+    } else {
+        console.log("email not valid")
+        $("#email").css("border", "3px solid red");
+    }
+});
+
+
 
 
