@@ -71,6 +71,8 @@ $("#prev-img").click(function(){
 // Email Section
 const EmailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
+let savedEmails = [];
+
 const validateEmail = function(email) {
     if (email.match(EmailRegex) && email.length > 0) {
         return true 
@@ -84,12 +86,65 @@ $("#email").on('input', function (){
     if (isValid) {
         console.log("email valid");
         $("#email").css("border", "3px solid green");
+        $("#link-button").css("background-color", "#191a1c");
     } else {
         console.log("email not valid")
         $("#email").css("border", "3px solid red");
+        $("#link-button").css("background-color", "#5c5d5e");
     }
 });
 
 
+$("#link-button").click(function (){
+    const isValid = validateEmail($("#email").val())
+    if (isValid) {
+        $(".email-show").css("display", "none");
+        $(".email-container").css("display", "flex");
+        linkEmail($("#email").val())
+    } else {
+        $(".warning-msg").css("color", "#a3a3a3");
+        setTimeout(function() {
+            $(".warning-msg").css("color", "#191a1c");
+          }, 3000);
+    }
+});
 
 
+const linkEmail = email => {
+    let isNewEmail = true
+    let alreadyLinked = false
+    for (let savedEmail in savedEmails) {
+        if (savedEmail === email) {
+            isNewEmail = false
+            break
+        }
+    }
+    if (isNewEmail) {
+        savedEmails[`${email}`] = [displayedImg]
+        console.log("email added");
+    } else {
+        for (let i = 0; i < savedEmails[`${email}`].length; i++) {
+            if (savedEmails[`${email}`][i].id === displayedImg.id) {
+                alreadLinked = true
+                break
+            }
+        }
+        if (!alreadyLinked) {
+            savedEmails[`${email}`].push(displayedImg)
+            console.log("will update emails")
+        } else {
+            console.log("email already added")
+        }
+    }
+    return alreadyLinked
+}
+
+$(".email-show").click(function(){
+    $(".email-show").css("display", "none");
+    $(".email-container").css("display", "flex");
+});
+
+$(".email-head").click(function (){
+    $(".email-show").css("display", "flex");
+    $(".email-container").css("display", "none");
+});

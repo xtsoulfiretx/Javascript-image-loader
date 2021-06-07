@@ -112,9 +112,15 @@
 .image-info-forms #email-form button {
   width: 100px;
   font-size: 1rem;
-  background-color: #191a1c;
+  background-color: #5c5d5e;
   color: #fff;
   border: 2px solid #fff;
+  transition: 0.5s;
+}
+.image-info-forms #email-form .warning-msg {
+  color: #191a1c;
+  transition: 0.5s;
+  font-weight: 300;
 }
 
 #email-section {
@@ -126,7 +132,7 @@
   z-index: 3;
 }
 #email-section .email-show {
-  display: none;
+  display: flex;
   flex-direction: row;
   padding: 10px;
   border: 2px solid #fff;
@@ -134,13 +140,14 @@
   border-radius: 10px 0 0 10px;
   width: 200px;
   transition: 0.5s;
+  cursor: pointer;
 }
 #email-section .email-show i {
   font-size: 1.5rem;
   margin-right: 5px;
 }
 #email-section .email-container {
-  display: flex;
+  display: none;
   flex-direction: column;
   border: 2px solid #fff;
   border-radius: 10px 0 0 10px;
@@ -151,6 +158,11 @@
 #email-section .email-container .email-head {
   border-bottom: 2px solid #fff;
   padding-bottom: 5px;
+  cursor: pointer;
+}
+#email-section .email-container .email-head i {
+  font-size: 1.5rem;
+  margin-right: 5px;
 }
 #email-section .email-container .saved-emails {
   display: flex;
