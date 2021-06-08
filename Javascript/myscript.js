@@ -82,12 +82,15 @@ const validateEmail = function(email) {
 }
 
 $("#email").on('input', function (){
+
     const isValid = validateEmail($("#email").val())
+
     if (isValid) {
         console.log("email valid");
         $("#email").css("border", "3px solid green");
         $("#link-button").css("background-color", "#191a1c");
-    } else {
+    } 
+    else {
         console.log("email not valid")
         $("#email").css("border", "3px solid red");
         $("#link-button").css("background-color", "#5c5d5e");
@@ -96,12 +99,15 @@ $("#email").on('input', function (){
 
 
 $("#link-button").click(function (){
+
     const isValid = validateEmail($("#email").val())
+
     if (isValid) {
         $(".email-show").css("display", "none");
         $(".email-container").css("display", "flex");
         linkEmail($("#email").val())
-    } else {
+    } 
+    else {
         $(".warning-msg").css("color", "#a3a3a3");
         setTimeout(function() {
             $(".warning-msg").css("color", "#191a1c");
@@ -121,8 +127,11 @@ const linkEmail = email => {
     }
     if (isNewEmail) {
         savedEmails[`${email}`] = [displayedImg]
+        let vis_Email = $("<p></p>").text(`${email}`);
+        $(".saved-emails").append(vis_Email);
         console.log("email added");
-    } else {
+    } 
+    else {
         for (let i = 0; i < savedEmails[`${email}`].length; i++) {
             if (savedEmails[`${email}`][i].id === displayedImg.id) {
                 alreadLinked = true
@@ -132,7 +141,8 @@ const linkEmail = email => {
         if (!alreadyLinked) {
             savedEmails[`${email}`].push(displayedImg)
             console.log("will update emails")
-        } else {
+        } 
+        else {
             console.log("email already added")
         }
     }
@@ -148,3 +158,5 @@ $(".email-head").click(function (){
     $(".email-show").css("display", "flex");
     $(".email-container").css("display", "none");
 });
+
+//<i class="far fa-plus-square"></i>
