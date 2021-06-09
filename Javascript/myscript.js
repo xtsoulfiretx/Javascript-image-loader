@@ -126,20 +126,25 @@ const linkEmail = email => {
         }
     }
     if (isNewEmail) {
-        savedEmails[`${email}`] = [displayedImg]
-        let vis_Email = $("<p></p>").text(`${email}`);
+        savedEmails[email] = [displayedImg]
+        let vis_Email = $("<p></p>").text(email);
         $(".saved-emails").append(vis_Email);
+        let vis_Indicator = $("<h4></h4>").text(savedEmails[email].length)
+        $(".saved-emails").append(vis_Indicator);
         console.log("email added");
     } 
     else {
-        for (let i = 0; i < savedEmails[`${email}`].length; i++) {
-            if (savedEmails[`${email}`][i].id === displayedImg.id) {
+        for (let i = 0; i < savedEmails[email].length; i++) {
+            if (savedEmails[email][i].id === displayedImg.id) {
                 alreadLinked = true
                 break
             }
         }
         if (!alreadyLinked) {
-            savedEmails[`${email}`].push(displayedImg)
+            savedEmails[email].push(displayedImg)
+            let vis_Indicator = $("<h4></h4>").text(savedEmails[email].length)
+            vis_Indicator.replace();
+            $(".saved-emails").append(vis_Indicator);
             console.log("will update emails")
         } 
         else {

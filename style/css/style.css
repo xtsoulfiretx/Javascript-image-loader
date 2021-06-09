@@ -176,7 +176,10 @@
 }
 #email-section .email-container .saved-emails p {
   padding-top: 10px;
-  width: 90%;
+}
+#email-section .email-container .saved-emails h4 {
+  padding-top: 10px;
+  margin-left: 10px;
 }
 
 * {
