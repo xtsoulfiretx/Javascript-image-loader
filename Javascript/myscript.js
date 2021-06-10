@@ -143,8 +143,7 @@ const linkEmail = email => {
         if (!alreadyLinked) {
             savedEmails[email].push(displayedImg)
             let vis_Indicator = $("<h4></h4>").text(savedEmails[email].length)
-            vis_Indicator.replace();
-            $(".saved-emails").append(vis_Indicator);
+            $(`p:contains("${email}")`).next().replaceWith(vis_Indicator);
             console.log("will update emails")
         } 
         else {
