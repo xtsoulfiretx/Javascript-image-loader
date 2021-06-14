@@ -7,28 +7,29 @@
             <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
             <script src="https://unpkg.com/core-js-bundle@3.9.1/minified.js"></script>
             <script src="https://kit.fontawesome.com/2617b01a9a.js" crossorigin="anonymous"></script>
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
         </head>
 
         <body>
-            <header>
-                <div id="header">
-                    <div class="header-wrap">
-                        <div class="header-banner">
-                            <h1 class="header-title">Image Loader</h1>
-                        </div>
-                    </div>
-                </div>
-            </header>
             <main>
                 <div id="body">
                     <div id="body-main">
                         <div id="body-image-loader">
+                            <div class="gallery-loader-head">
+                                <div>
+                                    <button class="back-to">Back to Image loader</button>
+                                </div>
+                                <div class="gallery-loader-title">
+                                    <h1>Gallery</h1>
+                                </div>
+                            </div>
                             <div class="image-loader-head">
                                 <div class="prev">
                                     <button id="prev-img" class="image-button">Previous Image</button>
                                 </div>
                                 <div class="image-loader-title">
-                                    <h2>Placeholder title</h2>
+                                    <h2>Image Loader</h2>
                                 </div>
                                 <div class="next">
                                     <button id="next-img" class="image-button">Next Image</button>
@@ -38,6 +39,20 @@
                                 <div class="image-container">
                                     <img src="https://picsum.photos/1200/600" alt="placeholder image" class="image-box">
                                 </div> 
+                            </div>
+                            <div id="gallery-loader">
+                                <div class="gallery-container">
+                                </div>
+                            </div>
+                            <div class="image-loader-head">
+                                <div class="prev">
+                                    <button id="prev-img" class="image-button">Previous Image</button>
+                                </div>
+                                <div class="image-loader-title">
+                                </div>
+                                <div class="next">
+                                    <button id="next-img" class="image-button">Next Image</button>
+                                </div>
                             </div>
                             <div class="image-loader-info">
                                 <div class="image-info-forms">

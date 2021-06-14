@@ -5,42 +5,46 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
     color: #fff;
 
     .image-loader-head {
-        display: flex;
+        display: none;
         flex-direction: row;
         justify-content: space-evenly;
         width: 100%;
-        border: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        border-top: 2px solid #fff;
     }
 
     .image-button {
         height: 100%;
         background-color: #191a1c;
+        font-size: 1rem;
         color: #fff;
         border: none;
         border-left: 2px solid #fff;
         border-right: 2px solid #fff;
         padding: 5px;
         cursor: pointer;
+        transition: .5s;
+
+        &:hover {
+            background-color: #5c5d5e;
+        }
     }
     .image-loader-title {
         padding: 20px;
     }
 
     #image-loader {
-        display: flex;
+        display: none;
         flex-direction: row;
         justify-content: center;
-        width: 100%;
+        width: 60%;
         margin: 30px;
 
         .image-container {
-            border: 1px solid #fff;
-            width: 60%;
-            height: 55vh;
+            border: 2px solid #fff;
         }
 
         .image-box {

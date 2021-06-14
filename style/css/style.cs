@@ -50,7 +50,7 @@
   padding: 20px;
 }
 #body-image-loader #image-loader {
-  display: none;
+  display: hidden;
   flex-direction: row;
   justify-content: center;
   width: 60%;
@@ -68,11 +68,10 @@
   width: 100%;
   background-color: #191a1c;
   padding: 30px;
-  display: none;
 }
 
 .image-info-forms {
-  display: none;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 70%;
@@ -133,6 +132,7 @@
   position: absolute;
   top: 200px;
   right: 0px;
+  background-color: #191a1c;
   z-index: 3;
 }
 #email-section .email-show {
@@ -144,7 +144,6 @@
   border-radius: 10px 0 0 10px;
   width: 200px;
   transition: 0.5s;
-  background-color: #191a1c;
   cursor: pointer;
 }
 #email-section .email-show i {
@@ -159,7 +158,6 @@
   border-right: none;
   width: 300px;
   padding: 10px;
-  background-color: #191a1c;
 }
 #email-section .email-container .email-head {
   border-bottom: 2px solid #fff;
@@ -183,67 +181,9 @@
 #email-section .email-container .saved-emails p {
   padding-top: 10px;
 }
-#email-section .email-container .saved-emails p:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
 #email-section .email-container .saved-emails h4 {
   padding-top: 10px;
   margin-left: 10px;
-}
-
-.gallery-loader-head {
-  background-color: #191a1c;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  color: #fff;
-}
-.gallery-loader-head .gallery-loader-title {
-  padding: 20px;
-}
-.gallery-loader-head .back-to {
-  height: 40px;
-  background-color: #191a1c;
-  font-size: 1rem;
-  color: #fff;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  padding: 5px;
-  cursor: pointer;
-  transition: 0.5s;
-  left: 40px;
-  top: 20px;
-  position: absolute;
-}
-.gallery-loader-head .back-to:hover {
-  background-color: #5c5d5e;
-}
-
-#gallery-loader {
-  height: 100%;
-  background-color: #191a1c;
-  border-top: 2px solid #fff;
-}
-#gallery-loader .gallery-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: #191a1c;
-  padding: 30px;
-}
-#gallery-loader .gallery-container .gallery-image-container {
-  width: 50%;
-  height: 40%;
-  padding: 5px;
-}
-#gallery-loader .gallery-container .gallery-image-container .gallery-image-box {
-  height: 100%;
-  width: 100%;
-  transition: 0.5s;
-}
-#gallery-loader .gallery-container .gallery-image-container .gallery-image-box:hover {
-  opacity: 50%;
 }
 
 * {
@@ -257,4 +197,4 @@
   height: 100%;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.cs.map */

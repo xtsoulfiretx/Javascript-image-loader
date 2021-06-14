@@ -1,4 +1,4 @@
-//
+//Global Variables
 
 let displayedImg;
 let prevDisplayImg;
@@ -127,9 +127,26 @@ const linkEmail = email => {
     }
     if (isNewEmail) {
         savedEmails[email] = [displayedImg]
-        let vis_Email = $("<p></p>").text(email);
+        let vis_Email = $("<p></p>").text(email).addClass("gallery-btn");
         $(".saved-emails").append(vis_Email);
-        let vis_Indicator = $("<h4></h4>").text(savedEmails[email].length)
+
+        $(".gallery-btn").click(function (){
+            $(".gallery-loader-head").css("display", "flex");
+            $("#gallery-loader").css("display", "flex");
+            $(".image-loader-head").css("display", "none");
+            $("#image-loader").css("display", "none");
+            $(".image-loader-info").css("display", "none");
+            $(".image-info-forms").css("display", "none");
+
+            for (let a = 0; a < savedEmails[email].length; a++) {
+                let imageCollection = $("<img><img>").addClass("gallery-image-box").attr("src", (`${savedEmails[email][a].download_url}`));
+                const imageCollectionContainer = $("<div></div>").addClass("gallery-image-container");
+                $(".gallery-container").append(imageCollectionContainer);
+                $(".gallery-image-container").append(imageCollection);
+            }
+        });
+
+        let vis_Indicator = $("<h4></h4>").text(savedEmails[email].length);
         $(".saved-emails").append(vis_Indicator);
         console.log("email added");
     } 
@@ -163,4 +180,23 @@ $(".email-head").click(function (){
     $(".email-container").css("display", "none");
 });
 
-//<i class="far fa-plus-square"></i>
+//Gallery Mode
+
+$(".back-to").click(function (){
+    $(".gallery-loader-head").css("display", "none");
+    $("#gallery-loader").css("display", "none");
+    $(".image-loader-head").css("display", "flex");
+    $("#image-loader").css("display", "flex");
+    $(".image-loader-info").css("display", "flex");
+    $(".image-info-forms").css("display", "flex");
+});
+
+// $(".gallery-btn").click(function (){
+//     $(".gallery-loader-head").css("display", "flex");
+//     $("#gallery-loader").css("display", "flex");
+//     $(".image-loader-head").css("display", "none");
+//     $("#image-loader").css("display", "none");
+//     $(".image-loader-info").css("display", "none");
+//     $(".image-info-forms").css("display", "none");
+//     console.log("clicked");
+// });

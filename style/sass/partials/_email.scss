@@ -3,7 +3,6 @@
     position: absolute;
     top: 200px;
     right: 0px;
-    background-color: #191a1c;
     z-index: 3;
 
     .email-show {
@@ -15,6 +14,7 @@
         border-radius: 10px 0 0 10px;
         width: 200px;
         transition: .5s;
+        background-color: #191a1c;
         cursor: pointer;
 
         i {
@@ -31,6 +31,7 @@
         border-right: none;
         width: 300px;
         padding: 10px;
+        background-color: #191a1c;
 
         .email-head {
             border-bottom: 2px solid #fff;
@@ -54,6 +55,10 @@
             }
             p {
                 padding-top: 10px;
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                }
             }
             h4 {
                 padding-top: 10px;
