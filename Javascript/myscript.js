@@ -129,8 +129,8 @@ const linkEmail = email => {
         savedEmails[email] = [displayedImg]
         let vis_Email = $("<p></p>").text(email).addClass("gallery-btn");
         $(".saved-emails").append(vis_Email);
-
-        $(".gallery-btn").click(function (){
+        $(".gallery-btn").off("click");
+        $(".gallery-btn").on("click", function (){
             $(".gallery-loader-head").css("display", "flex");
             $("#gallery-loader").css("display", "flex");
             $(".image-loader-head").css("display", "none");
@@ -139,10 +139,9 @@ const linkEmail = email => {
             $(".image-info-forms").css("display", "none");
 
             for (let a = 0; a < savedEmails[email].length; a++) {
-                let imageCollection = $("<img><img>").addClass("gallery-image-box").attr("src", (`${savedEmails[email][a].download_url}`));
-                const imageCollectionContainer = $("<div></div>").addClass("gallery-image-container");
+                let imageCollectionContainer = $("<div></div>").addClass("gallery-image-container");
+                imageCollectionContainer.append($("<img>").addClass("gallery-image-box").attr("src", savedEmails[email][a].download_url));
                 $(".gallery-container").append(imageCollectionContainer);
-                $(".gallery-image-container").append(imageCollection);
             }
         });
 
@@ -189,6 +188,8 @@ $(".back-to").click(function (){
     $("#image-loader").css("display", "flex");
     $(".image-loader-info").css("display", "flex");
     $(".image-info-forms").css("display", "flex");
+
+    $(".gallery-image-container").remove();
 });
 
 // $(".gallery-btn").click(function (){
@@ -200,3 +201,5 @@ $(".back-to").click(function (){
 //     $(".image-info-forms").css("display", "none");
 //     console.log("clicked");
 // });
+
+$(".gallery-image-container").append(imageCollection);
