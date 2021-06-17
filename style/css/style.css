@@ -190,6 +190,7 @@
 #email-section .email-container .saved-emails h4 {
   padding-top: 10px;
   margin-left: 10px;
+  margin-right: 60px;
 }
 
 .gallery-loader-head {
@@ -234,7 +235,7 @@
 }
 #gallery-loader .gallery-container .gallery-image-container {
   width: 50%;
-  height: 40%;
+  height: auto;
   padding: 5px;
 }
 #gallery-loader .gallery-container .gallery-image-container .gallery-image-box {

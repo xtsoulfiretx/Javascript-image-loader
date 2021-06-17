@@ -137,7 +137,7 @@ const linkEmail = email => {
             $("#image-loader").css("display", "none");
             $(".image-loader-info").css("display", "none");
             $(".image-info-forms").css("display", "none");
-
+            $(".gallery-image-container").remove();
             for (let a = 0; a < savedEmails[email].length; a++) {
                 let imageCollectionContainer = $("<div></div>").addClass("gallery-image-container");
                 imageCollectionContainer.append($("<img>").addClass("gallery-image-box").attr("src", savedEmails[email][a].download_url));
@@ -160,6 +160,14 @@ const linkEmail = email => {
             savedEmails[email].push(displayedImg)
             let vis_Indicator = $("<h4></h4>").text(savedEmails[email].length)
             $(`p:contains("${email}")`).next().replaceWith(vis_Indicator);
+                $(".gallery-btn").on("click", function (){
+                $(".gallery-image-container").remove();
+                for (let a = 0; a < savedEmails[email].length; a++) {
+                let imageCollectionContainer = $("<div></div>").addClass("gallery-image-container");
+                imageCollectionContainer.append($("<img>").addClass("gallery-image-box").attr("src", savedEmails[email][a].download_url));
+                $(".gallery-container").append(imageCollectionContainer);
+            }
+        });
             console.log("will update emails")
         } 
         else {
@@ -192,14 +200,8 @@ $(".back-to").click(function (){
     $(".gallery-image-container").remove();
 });
 
-// $(".gallery-btn").click(function (){
-//     $(".gallery-loader-head").css("display", "flex");
-//     $("#gallery-loader").css("display", "flex");
-//     $(".image-loader-head").css("display", "none");
-//     $("#image-loader").css("display", "none");
-//     $(".image-loader-info").css("display", "none");
-//     $(".image-info-forms").css("display", "none");
-//     console.log("clicked");
-// });
+function loadGallery () {
+    
+}
 
 $(".gallery-image-container").append(imageCollection);
