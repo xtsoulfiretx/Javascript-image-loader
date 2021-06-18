@@ -1,6 +1,6 @@
 .gallery-loader-head {
     background-color: #191a1c;
-    display: flex;
+    display: none;
     flex-direction: row;
     justify-content: space-around;
     color: #fff;
@@ -33,9 +33,13 @@
     height: 100%;
     background-color: #191a1c;
     border-top: 2px solid #fff;
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { 
+        max-height: 100%;
+        max-width: 100%;
+    }
 
     .gallery-container {
-        display: flex;
+        display: none;
         flex-direction: row;
         flex-wrap: wrap;
         background-color: #191a1c;
