@@ -49,8 +49,10 @@
   cursor: pointer;
   transition: 0.5s;
 }
-#body-image-loader .image-button:hover {
+#body-image-loader .disabled {
+  cursor: default;
   background-color: #5c5d5e;
+  opacity: 0.5;
 }
 #body-image-loader .image-loader-title {
   padding: 20px;
@@ -66,8 +68,7 @@
   border: 2px solid #fff;
 }
 #body-image-loader #image-loader .image-box {
-  width: 100%;
-  height: 100%;
+  height: 35rem;
 }
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   #body-image-loader #image-loader {
@@ -80,6 +81,8 @@
   background-color: #191a1c;
   padding: 30px;
   display: flex;
+  border-top: 3px solid #fff;
+  padding-top: 40px;
 }
 
 .image-info-forms {
@@ -89,12 +92,23 @@
   width: 70%;
   margin: auto;
 }
+@media (max-width: 1000px) {
+  .image-info-forms {
+    flex-direction: column;
+    width: 100%;
+  }
+}
 .image-info-forms .image-details {
   display: flex;
   flex-direction: column;
   border: 2px solid #fff;
   border-radius: 10px;
   width: 50%;
+}
+@media (max-width: 1000px) {
+  .image-info-forms .image-details {
+    width: 100%;
+  }
 }
 .image-info-forms .image-details h3 {
   font-size: 1.5rem;
@@ -103,9 +117,19 @@
   padding-left: 5px;
   border-bottom: 2px solid #fff;
 }
+@media (min-width: 1001px) and (max-width: 1240px) {
+  .image-info-forms .image-details h3 {
+    font-size: 1rem;
+  }
+}
 .image-info-forms .image-details h4 {
   font-size: 1.25rem;
   margin: 5px;
+}
+@media (min-width: 1001px) and (max-width: 1240px) {
+  .image-info-forms .image-details h4 {
+    font-size: 1rem;
+  }
 }
 .image-info-forms #email-form {
   display: flex;
@@ -115,14 +139,31 @@
   width: 50%;
   margin-left: 20px;
 }
+@media (max-width: 1000px) {
+  .image-info-forms #email-form {
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 0;
+  }
+}
 .image-info-forms #email-form #email {
   width: 100%;
   padding-left: 5px;
   border: 1px solid grey;
   height: 40px;
 }
+@media (max-width: 1000px) {
+  .image-info-forms #email-form #email {
+    margin-top: 10px;
+  }
+}
 .image-info-forms #email-form h2 {
-  height: 2rem;
+  font-size: 1.5rem;
+}
+@media (min-width: 1000px) and (max-width: 1600px) {
+  .image-info-forms #email-form h2 {
+    font-size: 1.25rem;
+  }
 }
 .image-info-forms #email-form button {
   width: 100px;
@@ -131,12 +172,35 @@
   color: #fff;
   border: 2px solid #fff;
   border-radius: 5px;
-  transition: 1s;
+  transition: 0.5s;
+}
+@media (max-width: 1000px) {
+  .image-info-forms #email-form button {
+    margin-top: 10px;
+    height: 2rem;
+  }
+}
+.image-info-forms #email-form .active {
+  background-color: #191a1c;
+}
+.image-info-forms #email-form .active:hover {
+  background-color: #5c5d5e;
+}
+.image-info-forms #email-form .active:active {
+  background-color: #fff;
 }
 .image-info-forms #email-form .warning-msg {
   color: #191a1c;
   transition: 0.5s;
   font-weight: 300;
+  width: 60%;
+  font-size: 1.25;
+}
+@media (min-width: 1000px) and (max-width: 1600px) {
+  .image-info-forms #email-form .warning-msg {
+    font-size: 0.875rem;
+    width: 100%;
+  }
 }
 
 #email-section {

@@ -3,6 +3,8 @@
     background-color: #191a1c;
     padding: 30px;
     display: flex;
+    border-top: 3px solid #fff;
+    padding-top: 40px;
 }
 
 .image-info-forms {
@@ -11,6 +13,10 @@
     justify-content: space-around;
     width: 70%;
     margin: auto;
+    @media (max-width: 1000px) {
+       flex-direction: column;
+       width: 100%;
+    }
 
     .image-details {
         display: flex;
@@ -19,17 +25,29 @@
         border-radius: 10px;
         width: 50%;
 
+        @media (max-width: 1000px) {
+            width: 100%;
+        }
+
         h3 {
             font-size: 1.5rem;
             margin-top: 10px;
             padding-bottom: 5px;
             padding-left: 5px;
             border-bottom: 2px solid #fff;
+
+            @media (min-width: 1001px) and (max-width: 1240px) {
+                font-size: 1rem;
+            }
         }
 
         h4 {
             font-size: 1.25rem;
             margin: 5px;
+
+            @media (min-width: 1001px) and (max-width: 1240px) {
+                font-size: 1rem;
+            }
         }
     }
 
@@ -41,15 +59,29 @@
         width: 50%;
         margin-left: 20px;
 
+        @media (max-width: 1000px) {
+            width: 100%;
+            margin-top: 20px;
+            margin-left: 0;
+        }
+
         #email {
             width: 100%;
             padding-left: 5px;
             border: 1px solid grey;
             height: 40px;
+
+            @media (max-width: 1000px) {
+                margin-top: 10px;
+            }
         }
 
         h2 {
-            height: 2rem;
+            font-size: 1.5rem;
+
+            @media (min-width: 1000px) and (max-width: 1600px) {
+                font-size: 1.25rem;
+            }
     }
 
     button {
@@ -59,13 +91,37 @@
         color: #fff;
         border: 2px solid #fff;
         border-radius: 5px;
-        transition: 1s;
+        transition: .5s;
+
+        @media (max-width: 1000px) {
+            margin-top: 10px;
+            height: 2rem;
+        }
+    }
+
+    .active {
+        background-color: #191a1c;
+
+        &:hover {
+            background-color: #5c5d5e;
+        }
+
+        &:active {
+            background-color: #fff;
+        }
     }
 
     .warning-msg {
         color:#191a1c;
         transition: .5s;
         font-weight: 300;
+        width: 60%;
+        font-size: 1.25;
+
+        @media (min-width: 1000px) and (max-width: 1600px) {
+            font-size: 0.875rem;
+            width: 100%;
+        }
     }
 }
 }

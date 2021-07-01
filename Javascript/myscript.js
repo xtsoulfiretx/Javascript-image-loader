@@ -1,6 +1,10 @@
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+} //Global Variables
 
-//Global Variables
+
 var displayedImg;
 var prevDisplayImg; // Image Details for displayedImg and LinkedImgs
 
@@ -17,7 +21,6 @@ function getImages() {
   var randomPage = Math.floor(Math.random() * 10 + 1);
   axios.get("https://picsum.photos/v2/list?page=".concat(randomPage, "&limit=100")).then(function (response) {
     pickRandomImage(response.data);
-    console.log(response.data);
   }); // }) .catch(err => errorHandler(err))
 } // Picks a random image from the fetched data
 
@@ -27,33 +30,38 @@ var pickRandomImage = function pickRandomImage(array) {
   var chosenImage = array[randomImage]; // const chosenImageLinks = checkLinks(chosenImage)
 
   displayedImg = new ImageDetails(chosenImage.id, chosenImage.author, chosenImage.url, chosenImage.download_url);
-  loadImage();
-  loadImageDetails();
+  loadImage(displayedImg);
+  loadImageDetails(displayedImg);
 }; // this loads the image into my display box
 
 
-function loadImage() {
-  $(".image-box").attr("src", displayedImg.download_url);
+function loadImage(image) {
+  $(".image-box").attr("src", image.download_url);
 } // this loads the image details into my image details container
 
 
-function loadImageDetails() {
+function loadImageDetails(displayedImg) {
   $(".image-url").text("URL: ".concat(displayedImg.url));
   $(".image-id").text("ID: ".concat(displayedImg.id));
   $(".image-author").text("Author: ".concat(displayedImg.author));
 } // This will load an image and put it on display the moment the page gets loaded 
 
 
+$(document).ready($("#prev-img").addClass("disabled"));
 $(document).ready(getImages()); // These 2 functions handle cycling through the downloaded images
 
 $(".next").click(function () {
   prevDisplayImg = displayedImg;
-  getImages();
+  getImages(displayedImg);
+  $("#prev-img").removeClass("disabled");
+  $("#prev-img").addClass("active");
 });
 $("#prev-img").click(function () {
   displayedImg = prevDisplayImg;
-  loadImage();
-  loadImageDetails();
+  loadImage(displayedImg);
+  loadImageDetails(displayedImg);
+  $("#prev-img").removeClass("active");
+  $("#prev-img").addClass("disabled");
 }); // Email Section
 
 var EmailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
@@ -73,10 +81,10 @@ $("#email").on('input', function () {
 
   if (isValid) {
     $("#email").css("border", "3px solid green");
-    $("#link-button").css("background-color", "#191a1c");
+    $("#link-button").addClass("active");
   } else {
     $("#email").css("border", "3px solid red");
-    $("#link-button").css("background-color", "#5c5d5e");
+    $("#link-button").removeClass("active");
   }
 }); // This function will stop the user from clicking the link button if their email is not valid
 
@@ -131,7 +139,9 @@ var linkEmail = function linkEmail(email) {
     });
     var vis_Indicator = $("<h4></h4>").text(savedEmails[email].length);
     $(".saved-emails").append(vis_Indicator);
-    console.log("email added");
+    $("#prev-img").removeClass("active");
+    $("#prev-img").addClass("disabled");
+    getImages(displayedImg);
   } else {
     for (var i = 0; i < savedEmails[email].length; i++) {
       if (savedEmails[email][i].id === displayedImg.id) {
@@ -156,10 +166,10 @@ var linkEmail = function linkEmail(email) {
           $(".gallery-container").append(imageCollectionContainer);
         }
       });
-      console.log("will update emails");
-    } else {
-      console.log("email already added");
-    }
+      $("#prev-img").removeClass("active");
+      $("#prev-img").addClass("disabled");
+      getImages(displayedImg);
+    } else {}
   }
 
   return alreadyLinked;
